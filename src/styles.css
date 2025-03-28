@@ -2,15 +2,16 @@
 body {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  background: linear-gradient(120deg, #4facfe, #00f2fe);
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
   color: white;
   transition: background 0.5s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150vh;
+  height: 180vh;
   flex-direction: column;
   margin: 0;
+  margin-top: -140px !important;
 }
 
 /* Dark Mode */

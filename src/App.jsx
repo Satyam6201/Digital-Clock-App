@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <div className={`app ${isDarkMode ? "dark-mode" : ""}`}>
-      <h1>🕒 Digital Clock App</h1>
+      <h1>🕒 Digital Clock</h1>
       <ThemeSwitcher isDark={isDarkMode} onToggle={toggleTheme} />
       <FormatToggle is24Hour={is24HourFormat} onToggle={toggleFormat} />
       <TimeZoneSelector selectedTimeZone={selectedTimeZone} onChange={setSelectedTimeZone} />

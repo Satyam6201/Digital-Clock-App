@@ -17,7 +17,7 @@ export default function AlarmList({ alarms, onRemoveAlarm }) {
       alarms.forEach((alarm) => {
         if (alarm.time === currentTime && !isPlaying) {
           const sound = new Audio(alarmSound);
-          sound.loop = true; // Keep playing until stopped
+          sound.loop = true; 
           sound.play().catch((error) => console.error("Audio Play Error:", error));
           setAudio(sound);
           setIsPlaying(true);

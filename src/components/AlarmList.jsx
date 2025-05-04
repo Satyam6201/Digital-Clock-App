@@ -35,13 +35,19 @@ export default function AlarmList({ alarms, onRemoveAlarm, onUpdateAlarm }) {
     if (audio) {
       audio.pause();
       audio.currentTime = 0;
-      setIsPlaying(false);
       setAudio(null);
-      setTriggeredIndex(null);
     }
+    setIsPlaying(false);
+    setTriggeredIndex(null);
   };
 
   const snoozeAlarm = (index) => {
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+      setAudio(null);
+    }
+
     const snoozeTime = new Date();
     snoozeTime.setMinutes(snoozeTime.getMinutes() + 5);
     const newTime = snoozeTime.toLocaleTimeString("en-US", {
@@ -52,7 +58,9 @@ export default function AlarmList({ alarms, onRemoveAlarm, onUpdateAlarm }) {
 
     const updatedAlarm = { ...alarms[index], time: newTime };
     onUpdateAlarm(index, updatedAlarm);
-    stopAlarm();
+
+    setIsPlaying(false);
+    setTriggeredIndex(null);
   };
 
   return (
@@ -64,7 +72,7 @@ export default function AlarmList({ alarms, onRemoveAlarm, onUpdateAlarm }) {
           <li key={index} className={`alarm-item ${triggeredIndex === index ? "triggered" : ""}`}>
             <span><strong>{alarm.time}</strong> - {alarm.label || "No Label"}</span>
             <div className="alarm-actions">
-              <button onClick={() => onRemoveAlarm(index)}>❌</button>
+              <button className="delete-btn" onClick={() => onRemoveAlarm(index)}>❌</button>
               {triggeredIndex === index && (
                 <button className="snooze" onClick={() => snoozeAlarm(index)}>😴 Snooze 5 min</button>
               )}

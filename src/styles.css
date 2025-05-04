@@ -33,25 +33,6 @@ body {
   align-items: center;
 }
 
-/* Clock Section */
-.clock-container {
-  text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.date {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.time {
-  font-size: 36px;
-  font-weight: bold;
-}
 
 /* Theme & Format Switchers */
 .theme-toggle, .format-toggle {

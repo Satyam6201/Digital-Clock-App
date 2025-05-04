@@ -13,7 +13,7 @@ export default function AlarmList({ alarms, onRemoveAlarm, onUpdateAlarm }) {
       const currentTime = now.toLocaleTimeString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
-        hour12: false,
+        hour12: true,
       });
 
       alarms.forEach((alarm, index) => {
@@ -47,7 +47,7 @@ export default function AlarmList({ alarms, onRemoveAlarm, onUpdateAlarm }) {
     const newTime = snoozeTime.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
-      hour12: false,
+      hour12: true,
     });
 
     const updatedAlarm = { ...alarms[index], time: newTime };

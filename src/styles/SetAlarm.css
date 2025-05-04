@@ -77,3 +77,15 @@
   background: #38b2ac;
   transform: translateY(-2px);
 }
+
+@media (max-width: 480px) {
+  .set-alarm input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .set-alarm button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

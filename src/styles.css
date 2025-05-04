@@ -33,7 +33,6 @@ body {
   align-items: center;
 }
 
-
 /* Theme & Format Switchers */
 .theme-toggle, .format-toggle {
   display: flex;

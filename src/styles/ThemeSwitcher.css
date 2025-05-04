@@ -67,3 +67,10 @@ input:checked + .slider:before {
   background-color: #121212;
   color: #ffffff;
 }
+
+@media (max-width: 480px) {
+  .theme-switcher button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

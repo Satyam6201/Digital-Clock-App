@@ -6,7 +6,6 @@ export default function Clock({ is24Hour, selectedTimeZone }) {
   const [weather, setWeather] = useState(null);
   const [location, setLocation] = useState(null);
 
-  // Function to fetch weather data from Open-Meteo
   const fetchWeather = (latitude, longitude) => {
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
@@ -18,7 +17,6 @@ export default function Clock({ is24Hour, selectedTimeZone }) {
       .catch((error) => console.error("Error fetching weather data:", error));
   };
 
-  // Get user's location and fetch weather data
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -28,13 +26,11 @@ export default function Clock({ is24Hour, selectedTimeZone }) {
     }
   }, []);
 
-  // Update time every second
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  // Format time and date
   const formattedTime = time.toLocaleTimeString("en-US", {
     timeZone: selectedTimeZone === "local" ? undefined : selectedTimeZone,
     hour: "2-digit",

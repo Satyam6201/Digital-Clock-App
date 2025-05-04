@@ -75,3 +75,10 @@ input:checked + .slider:before {
   white-space: nowrap;
   z-index: 10;
 }
+
+@media (max-width: 480px) {
+  .format-toggle button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

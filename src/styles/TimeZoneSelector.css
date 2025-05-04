@@ -54,3 +54,10 @@
   background-color: #fff;
   box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
 }
+
+@media (max-width: 480px) {
+  .timezone-selectors select {
+    width: 100%;
+    font-size: 12px;
+  }
+}

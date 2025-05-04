@@ -83,24 +83,22 @@
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .time {
     font-size: 36px;
   }
 
   .date {
-    font-size: 18px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .time {
+    font-size: 28px;
   }
 
-  .weather {
-    font-size: 18px;
-  }
-
-  .wind {
+  .date {
     font-size: 14px;
-  }
-
-  .clock-container {
-    padding: 20px;
   }
 }

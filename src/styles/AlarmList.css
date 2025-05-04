@@ -128,3 +128,14 @@
 .modern-shadow {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 480px) {
+  .alarm-time {
+    font-size: 16px;
+  }
+
+  .alarm-actions button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}

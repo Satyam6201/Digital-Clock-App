@@ -56,21 +56,12 @@ input:checked + .slider:before {
   transform: translateX(22px);
 }
 
-/* Theme label */
 .theme-label {
   font-size: 16px;
   font-weight: 500;
 }
 
-/* Global dark mode style (can be expanded) */
 .dark-mode {
   background-color: #121212;
   color: #ffffff;
-}
-
-@media (max-width: 480px) {
-  .theme-switcher button {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
 }

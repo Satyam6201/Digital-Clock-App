@@ -82,23 +82,3 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .time {
-    font-size: 36px;
-  }
-
-  .date {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .time {
-    font-size: 28px;
-  }
-
-  .date {
-    font-size: 14px;
-  }
-}

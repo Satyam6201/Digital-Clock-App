@@ -58,3 +58,22 @@ button:hover {
   transform: scale(1.05);
   background: linear-gradient(to right, #ff4b2b, #ff416c);
 }
+
+@media (max-width: 768px) {
+  .clock-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-container {
+    width: 55% !important;
+  }
+}
+
+/* @media (max-width: 380px) {
+  
+  .clock-container {
+    width: 55% !important;
+  }
+} */

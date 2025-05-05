@@ -63,17 +63,74 @@ button:hover {
   .clock-container {
     width: 80%;
   }
+
+  .stopwatch {
+    width: 80%;
+  }
 }
 
 @media (max-width: 480px) {
   .clock-container {
     width: 55% !important;
   }
+
+  .stopwatch {
+    width: 95% !important;
+  }
+
+  .stopwatch {
+    width: 65% !important;
+  }
+
+  .alarm-list {
+    width: 65% !important;
+  }
+
+  .format-toggle {
+    width: 65% !important;
+  }
+
+  .set-alarm {
+    width: 65% !important;
+  }
+
+  .theme-switcher {
+    width: 65% !important;
+  }
+
+  .timezone-selectors {
+    width: 65% !important;
+  }
+
 }
 
-/* @media (max-width: 380px) {
+@media (max-width: 380px) {
   
   .clock-container {
-    width: 55% !important;
+    width: 65% !important;
   }
-} */
+
+  .stopwatch {
+    width: 65% !important;
+  }
+
+  .alarm-list {
+    width: 65% !important;
+  }
+
+  .format-toggle {
+    width: 65% !important;
+  }
+
+  .set-alarm {
+    width: 65% !important;
+  }
+
+  .theme-switcher {
+    width: 65% !important;
+  }
+
+  .timezone-selectors {
+    width: 65% !important;
+  }
+}

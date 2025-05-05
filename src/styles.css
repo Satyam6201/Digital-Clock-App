@@ -59,16 +59,6 @@ button:hover {
   background: linear-gradient(to right, #ff4b2b, #ff416c);
 }
 
-@media (max-width: 768px) {
-  .clock-container {
-    width: 80%;
-  }
-
-  .stopwatch {
-    width: 80%;
-  }
-}
-
 @media (max-width: 480px) {
   .clock-container {
     width: 55% !important;
@@ -101,7 +91,6 @@ button:hover {
   .timezone-selectors {
     width: 65% !important;
   }
-
 }
 
 @media (max-width: 380px) {

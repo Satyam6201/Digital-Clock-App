@@ -1,80 +1,98 @@
 .set-alarm {
-  background: linear-gradient(145deg, #1e1e2f, #2a2a40);
+  background: rgba(30, 30, 60, 0.7);
+  backdrop-filter: blur(16px);
   padding: 25px;
-  border-radius: 15px;
+  border-radius: 18px;
   color: #ffffff;
   width: 100%;
-  max-width: 400px;
-  margin: auto;
+  max-width: 420px;
+  margin: 20px auto;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease-in-out;
 }
 
 .set-alarm h2 {
-  margin-bottom: 20px;
-  font-size: 1.6rem;
+  margin-bottom: 18px;
+  font-size: 1.7rem;
+  font-weight: 600;
   color: #fbd38d;
 }
 
 .alarm-inputs {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .set-alarm input[type="time"],
-.set-alarm select {
+.set-alarm select,
+.set-alarm input[type="text"] {
   flex: 1;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   font-size: 1rem;
-  background: #2e2e44;
-  color: #f1f1f1;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   outline: none;
   transition: 0.3s;
 }
 
 .set-alarm input[type="time"]:hover,
-.set-alarm select:hover {
-  background-color: #3a3a55;
-}
-
-.set-alarm input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-  background: #2e2e44;
-  color: #f1f1f1;
-  outline: none;
-  transition: 0.3s;
-}
-
+.set-alarm select:hover,
 .set-alarm input[type="text"]:hover {
-  background-color: #3a3a55;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.set-alarm input::placeholder {
+  color: #bbb;
+}
+
+.preview {
+  margin: 12px 0;
+  font-size: 0.95rem;
+  color: #f1f1f1;
+  opacity: 0.9;
 }
 
 .set-alarm button {
   width: 100%;
   margin-top: 15px;
-  padding: 12px;
-  background: #4fd1c5;
+  padding: 14px;
+  background: linear-gradient(135deg, #4fd1c5, #38b2ac);
   color: #000;
   font-weight: bold;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background 0.3s, transform 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .set-alarm button:hover {
-  background: #38b2ac;
+  background: linear-gradient(135deg, #38b2ac, #319795);
   transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
 }
 
+/* ✅ Responsive Design */
+@media (max-width: 600px) {
+  .set-alarm {
+    padding: 18px;
+    max-width: 95%;
+  }
+
+  .alarm-inputs {
+    flex-direction: column;
+  }
+
+  .set-alarm h2 {
+    font-size: 1.4rem;
+  }
+
+  .set-alarm button {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}

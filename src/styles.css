@@ -1,125 +1,155 @@
-/* Styles */
+/* Global Styles */
 body {
   font-family: "Poppins", sans-serif;
   text-align: center;
   background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
   color: white;
-  transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out, color 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 270vh;
+  min-height: 100vh; /* fix overflow */
   flex-direction: column;
   margin: 0;
-  width: 100% !important;
+  padding: 20px;
 }
 
 /* Dark Mode */
 .dark-mode {
-  background: #121212;
-  color: #fff;
+  background: radial-gradient(circle at top left, #0d0d0d, #1a1a1a);
+  color: #f5f5f5;
 }
 
 /* Main App Container */
 .app {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 20px;
   width: 100%;
-  max-width: 650px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeIn 0.8s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Theme & Format Switchers */
-.theme-toggle, .format-toggle {
+.theme-toggle, 
+.format-toggle {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  gap: 10px;
 }
 
+/* Buttons */
 button {
-  padding: 12px 15px;
-  border-radius: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
   color: white;
-  transition: all 0.3s ease-in-out;
-  width: 45%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.35s ease-in-out;
+  width: 48%;
+  box-shadow: 0px 6px 15px rgba(255, 65, 108, 0.4);
+  letter-spacing: 0.5px;
 }
 
 button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  transform: scale(1.08) translateY(-3px);
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  box-shadow: 0px 10px 20px rgba(255, 75, 43, 0.6);
+}
+
+/* Clock, Stopwatch, Alarm, etc. */
+.clock-container,
+.stopwatch,
+.alarm-list,
+.set-alarm,
+.theme-switcher,
+.timezone-selectors {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.clock-container:hover,
+.stopwatch:hover,
+.alarm-list:hover,
+.set-alarm:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 18px;
+    max-width: 90%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .theme-toggle, 
+  .format-toggle {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
-  .clock-container {
-    width: 55% !important;
-  }
-
-  .stopwatch {
-    width: 95% !important;
-  }
-
-  .stopwatch {
-    width: 65% !important;
-  }
-
-  .alarm-list {
-    width: 65% !important;
-  }
-
-  .format-toggle {
-    width: 65% !important;
-  }
-
-  .set-alarm {
-    width: 65% !important;
-  }
-
-  .theme-switcher {
-    width: 65% !important;
-  }
-
+  .clock-container,
+  .stopwatch,
+  .alarm-list,
+  .format-toggle,
+  .set-alarm,
+  .theme-switcher,
   .timezone-selectors {
-    width: 65% !important;
+    width: 100% !important;
+    padding: 15px;
+  }
+
+  h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 14px;
   }
 }
 
-@media (max-width: 380px) {
-  
-  .clock-container {
-    width: 65% !important;
+@media (max-width: 360px) {
+  .app {
+    padding: 12px;
   }
 
-  .stopwatch {
-    width: 65% !important;
+  h2, h3 {
+    font-size: 1rem;
   }
 
-  .alarm-list {
-    width: 65% !important;
-  }
-
-  .format-toggle {
-    width: 65% !important;
-  }
-
-  .set-alarm {
-    width: 65% !important;
-  }
-
-  .theme-switcher {
-    width: 65% !important;
-  }
-
-  .timezone-selectors {
-    width: 65% !important;
+  button {
+    font-size: 0.8rem;
+    padding: 8px 12px;
   }
 }

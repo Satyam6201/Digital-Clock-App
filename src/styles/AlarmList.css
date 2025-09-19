@@ -1,12 +1,12 @@
 .alarm-list {
-  background: rgba(30, 30, 60, 0.75);
+  background: linear-gradient(145deg, rgba(40,40,80,0.85), rgba(20,20,40,0.9));
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 25px;
   border-radius: 20px;
   text-align: center;
-  width: 80%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 650px;
   margin: 20px auto;
   color: #fff;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
@@ -17,6 +17,7 @@
   font-size: 1.8rem;
   color: #fbd38d;
   margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(255, 215, 100, 0.8);
 }
 
 .no-alarm {
@@ -38,12 +39,13 @@
   padding: 16px 20px;
   margin: 12px 0;
   border-radius: 14px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
   font-size: 1rem;
 }
 
 .alarm-item:hover {
   background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
 }
 
 .alarm-item span {
@@ -55,20 +57,21 @@
 }
 
 .alarm-item.triggered {
-  background: #ff4f4f88;
+  background: #ff4f4f99;
   animation: pulse 1s infinite;
   color: #fff;
 }
 
 .alarm-actions {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-left: 10px;
 }
 
 .alarm-actions button {
   padding: 8px 12px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
@@ -80,21 +83,23 @@
   transform: scale(1.05);
 }
 
-.alarm-actions button:first-child {
+.toggle-btn {
+  background: #48bb78;
+  color: #fff;
+}
+.toggle-btn:hover { background: #2f855a; }
+
+.delete-btn {
   background: #e53e3e;
   color: white;
 }
+.delete-btn:hover { background: #c53030; }
 
-.alarm-actions button:first-child:hover {
-  background: #c53030;
-}
-
-.snooze {
+.snooze-options button {
   background: #f6ad55;
   color: #000;
 }
-
-.snooze:hover {
+.snooze-options button:hover {
   background: #dd6b20;
   color: #fff;
 }
@@ -112,7 +117,6 @@
   width: 100%;
   transition: 0.3s;
 }
-
 .stop-alarm:hover {
   background: #e53e3e;
   color: white;
@@ -125,7 +129,32 @@
   100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
 }
 
-.modern-shadow {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+  .alarm-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .alarm-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .stop-alarm {
+    font-size: 0.9rem;
+  }
 }
 
+@media (max-width: 480px) {
+  .alarm-list {
+    padding: 15px;
+  }
+  .alarm-item {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  .alarm-actions button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

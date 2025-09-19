@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Clock.css"
+import "../styles/Clock.css";
 
 export default function Clock({ is24Hour, selectedTimeZone }) {
   const [time, setTime] = useState(new Date());
   const [weather, setWeather] = useState(null);
   const [location, setLocation] = useState(null);
+  const [city, setCity] = useState("Fetching...");
 
   const fetchWeather = (latitude, longitude) => {
     fetch(
@@ -17,11 +18,34 @@ export default function Clock({ is24Hour, selectedTimeZone }) {
       .catch((error) => console.error("Error fetching weather data:", error));
   };
 
+  // ✅ Get city from lat/lon using OpenStreetMap Nominatim
+  const fetchCity = (latitude, longitude) => {
+    fetch(
+      `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.address) {
+          setCity(
+            data.address.city ||
+              data.address.town ||
+              data.address.village ||
+              data.address.state ||
+              "Unknown"
+          );
+        } else {
+          setCity("Unknown");
+        }
+      })
+      .catch(() => setCity("Unknown"));
+  };
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation(position.coords);
         fetchWeather(position.coords.latitude, position.coords.longitude);
+        fetchCity(position.coords.latitude, position.coords.longitude); // ✅ Added
       });
     }
   }, []);
@@ -55,11 +79,12 @@ export default function Clock({ is24Hour, selectedTimeZone }) {
       {/* Weather Section */}
       {weather && location ? (
         <div className="weather-container">
-          <h3 className="weather">Temperature: {weather.temperature}°C</h3>
-          <p className="wind">Wind Speed: {weather.windspeed} km/h</p>
+          <h3 className="weather">📍 Location: {city}</h3>
+          <p className="weather">🌡 Temperature: {weather.temperature}°C</p>
+          <p className="wind">💨 Wind Speed: {weather.windspeed} km/h</p>
         </div>
       ) : (
-        <p className="loading">Fetching weather...</p>
+        <p className="loading">Fetching weather & location...</p>
       )}
     </div>
   );
